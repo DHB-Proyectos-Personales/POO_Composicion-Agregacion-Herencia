@@ -1,0 +1,61 @@
+🖥️ SIMULADOR DE COMPUTADORA - AGREGACIÓN📖
+================================================
+
+DESCRIPCIÓN DEL PROYECTO
+-------------------------
+Este programa simula el funcionamiento de una computadora y sus componentes,
+utilizando el paradigma de Programación Orientada a Objetos (POO). Demuestra
+los conceptos de composición y agregación entre clases.
+
+🎯 CONCEPTOS APLICADOS:
+• Composición: Computadora está compuesta por Procesador, MemoriaRAM y DiscoDuro.
+• Agregación: Computadora puede tener Periféricos (relación opcional).
+• Encapsulación: Datos privados con métodos públicos de acceso.
+• Abstracción: Interfaces claras para cada componente.
+
+🏗️ ESTRUCTURA DE CLASES:
+1. Computadora - Clase principal que coordina todos los componentes.
+2. Procesador - Simula un CPU con velocidad y núcleos.
+3. MemoriaRAM - Maneja lectura/escritura en memoria.
+4. DiscoDuro - Garda almacenamiento permanente.
+5. Periferico - Dispositivos externos (agregación).
+
+🚀 CÓMO COMPILAR Y EJECUTAR:
+----------------------------
+1. Abrir terminal/consola en la carpeta del proyecto
+2. Compilar todos los archivos .cpp:
+   g++ -o bin/Computadora.exe src/*.cpp -I include
+3. Ejecutar el programa:
+   bin/Computadora.exe
+
+🖥️ FUNCIONAMIENTO DEL PROGRAMA:
+-------------------------------
+1. Se crea una computadora con componentes específicos.
+2. Se conecta un periférico (agregación).
+3. La computadora se enciende y muestra el proceso de inicialización.
+4. Cada componente ejecuta sus operaciones específicas.
+5. La computadora se apaga mostrando el proceso de cierre.
+
+📁 ESTRUCTURA DE ARCHIVOS:
+--------------------------
+AGREGACION/
+├── bin/              # Ejecutable generado
+├── include/          # Archivos de cabecera (.hpp)
+├── src/             # Código fuente (.cpp)
+└── Léeme.txt        # Este archivo
+
+🔧 COMPONENTES DE LA COMPUTADORA:
+--------------------------------
+• Procesador: 3.5 GHz, 8 núcleos
+• Memoria RAM: 16 GB
+• Disco Duro: 1000 GB
+• Periférico: Mouse Logitech
+
+🎨 CARACTERÍSTICAS TÉCNICAS:
+---------------------------
+• Protección contra inclusiones múltiples.
+• Encapsulación de datos.
+• Uso de punteros para agregación.
+• Pausas simuladas para mejor experiencia.
+
+Desarrollado como ejemplo educativo de POO en C++.

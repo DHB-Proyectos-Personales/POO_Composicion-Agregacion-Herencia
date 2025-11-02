@@ -1,0 +1,104 @@
+🖥️ SIMULADOR DE COMPUTADORA📖
+
+============================================
+📋 DESCRIPCIÓN GENERAL
+============================================
+
+Este programa simula el funcionamiento de una computadora usando Programación Orientada a Objetos en C++. La computadora está compuesta por 4 componentes principales:
+
+🔧 COMPONENTES:
+• 🚀 Procesador - Ejecuta instrucciones
+• 📖 Memoria RAM - Almacena datos temporalmente  
+• 💿 Disco Duro - Almacena datos permanentemente
+• 🖥️ Computadora - Orquesta todos los componentes
+
+============================================
+🎯 CÓMO FUNCIONA
+============================================
+
+1. 🏁 INICIO: El programa crea una computadora con especificaciones:
+   - Procesador: 3.5 GHz, 8 núcleos
+   - Memoria RAM: 16 GB
+   - Disco Duro: 1000 GB
+
+2. 🔌 ENCENDIDO: Al presionar Enter, la computadora:
+   - ✅ Conecta energía e inicializa componentes
+   - 🚀 El procesador ejecuta instrucciones
+   - 📝 La memoria RAM lee y escribe datos
+   - 💿 El disco duro guarda información permanente
+
+3. ⏸️  FUNCIONAMIENTO: La computadora opera normalmente
+   - Muestra mensajes con emojis para mejor visualización
+   - Incluye delays realistas que simulan procesos
+
+4. 🔌 APAGADO: Al presionar Enter nuevamente:
+   - 📋 Guarda todo el trabajo
+   - 🔒 Cierra aplicaciones y libera memoria
+   - ⏹️  Detiene procesos de forma ordenada
+
+============================================
+📁 ESTRUCTURA DE ARCHIVOS
+============================================
+
+COMPOSICION/
+├── 📁 bin/                 # Carpeta del ejecutable
+│   └── 🎯 Computadora.exe  # Programa compilado
+├── 📁 include/             # Archivos de cabecera (.hpp)
+│   ├── 🚀 Procesador.hpp   # Clase del procesador
+│   ├── 📖 MemoriaRAM.hpp   # Clase de memoria RAM
+│   ├── 💿 DiscoDuro.hpp    # Clase del disco duro
+│   └── 🖥️ Computadora.hpp  # Clase principal
+├── 📁 src/                 # Código fuente (.cpp)
+│   ├── 🚀 Procesador.cpp   # Implementación procesador
+│   ├── 📖 MemoriaRAM.cpp   # Implementación memoria
+│   ├── 💿 DiscoDuro.cpp    # Implementación disco
+│   ├── 🖥️ Computadora.cpp  # Implementación computadora
+│   └── 🏁 main.cpp         # Programa principal
+└── 📄 Léeme.txt           # Este archivo
+
+============================================
+⚙️  CÓMO COMPILAR Y EJECUTAR
+============================================
+
+1. 📥 Asegúrate de tener un compilador C++ (GCC, MinGW, etc.)
+
+2. 🔄 Compila todos los archivos .cpp:
+   g++ -o bin/Computadora.exe src/*.cpp -I include
+
+3. 🎯 Ejecuta el programa:
+   bin/Computadora.exe
+
+4. 🎮 Sigue las instrucciones en pantalla:
+   - Presiona Enter para encender
+   - Presiona Enter para apagar
+
+============================================
+🎓 CONCEPTOS DE POO APLICADOS
+============================================
+
+✅ ENCAPSULACIÓN: Datos privados en cada clase
+✅ ABSTRACCIÓN: Interfaces simples para componentes complejos
+✅ COMPOSICIÓN: Computadora "tiene-un" procesador, memoria, disco
+✅ MODULARIDAD: Cada componente en archivos separados
+✅ REUTILIZACIÓN: Clases independientes y reutilizables
+✅ OCULTAMIENTO: Implementación interna protegida
+
+============================================
+🚀 CARACTERÍSTICAS DESTACADAS
+============================================
+
+• ⏱️  Timing realista con delays
+• 🔄 Flujo similar a computadora real
+• 📚 Código educativo y bien documentado
+• 🛡️ Protección contra inclusiones múltiples
+• 🔧 Fácil de modificar y extender
+
+============================================
+👨‍💻 AUTOR Y PROPÓSITO
+============================================
+
+Este programa fue creado para demostrar los principios fundamentales de la Programación Orientada a Objetos como parte del curso de Algoritmos y Estructuras de Datos.
+
+🎯 OBJETIVO: Aprender POO mediante un ejemplo práctico y visualmente atractivo.
+
+¡Disfruta explorando el mundo de la POO! 🌟

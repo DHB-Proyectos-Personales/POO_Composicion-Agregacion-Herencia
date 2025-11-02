@@ -1,0 +1,133 @@
+🎯 PROYECTO: SIMULADOR DE COMPUTADORA - ANÁLISIS LÓGICO 🔍
+==========================================================
+
+📁 ARCHIVO: Main.cpp
+-------------------
+
+🔹 Línea 1-4:   📚 Inclusión de librerías estándar y archivos de cabecera.
+🔹 Línea 6:     🏷️ using namespace std - Para no usar std:: repetidamente.
+🔹 Línea 8-10:  🎬 Función main - Punto de entrada del programa.
+🔹 Línea 12-13: ⚙️ Configuración de consola para soportar caracteres UTF-8.
+🔹 Línea 15-19: 🎪 Mostrar encabezado del simulador con emojis.
+🔹 Línea 22:    🏗️ Crear objeto Computadora con especificaciones:
+                - 🚀 Procesador: 3.5 GHz, 8 núcleos.
+                - 💾 Memoria: 16 GB RAM  
+                - 💿 Disco: 1000 GB
+🔹 Línea 25:    🖱️ Crear objeto Periferico en el heap (new) con marca "Logitech".
+🔹 Línea 26:    🔌 Conectar el periférico a la computadora (agregación).
+🔹 Línea 28-29: ⏳ Esperar entrada del usuario para continuar.
+🔹 Línea 32:    🔘 Llamar método encender() de la computadora.
+🔹 Línea 34-36: 📊 Mensaje de funcionamiento y esperar entrada.
+🔹 Línea 39:    🔴 Llamar método apagar() de la computadora.
+🔹 Línea 41:    🗑️ Liberar memoria del periférico (delete).
+🔹 Línea 43-44: 👋 Mensaje de despedida y retorno del programa.
+
+📁 ARCHIVO: Computadora.cpp
+--------------------------
+
+🔹 Línea 4:     🏭 Constructor - Inicializa componentes por composición:
+                procesador, memoria, disco con parámetros recibidos
+                periferico se inicializa como nullptr (sin periférico).
+🔹 Línea 7:     💡 Método encender() - Simula encendido de computadora.
+🔹 Línea 9-13:  🎯 Mostrar encabezado de encendido y conectar energía.
+🔹 Línea 15-16: ⚡ Mensaje de energía estable con pausa.
+🔹 Línea 18-19: 🔧 Inicializar componentes con pausa.
+🔹 Línea 22:    🚀 Llamar ejecutarInstruccion() del procesador.
+🔹 Línea 23:    ⏸️ Pausa para simular procesamiento.
+🔹 Línea 25:    📝 Llamar escribir() de memoria RAM.
+🔹 Línea 26:    ⏸️ Pausa para simular escritura.
+🔹 Línea 28-29: 📖 Leer de memoria y mostrar datos leídos.
+🔹 Línea 30:    ⏸️ Pausa.
+🔹 Línea 32:    💾 Llamar escribirSector() del disco duro.
+🔹 Línea 33:    ⏸️ Pausa.
+🔹 Línea 35-36: 📋 Leer del disco y mostrar datos.
+🔹 Línea 37:    ⏸️ Pausa.
+🔹 Línea 40-42: 🖱️ Si hay periférico conectado, llamar su método conectar().
+🔹 Línea 44-47: ✅ Mensaje final de encendido exitoso.
+
+🔹 Línea 50:    🔴 Método apagar() - Simula apagado de computadora.
+🔹 Línea 52-55: 🎯 Mostrar encabezado de apagado y guardar trabajo.
+🔹 Línea 57:    💾 Escribir datos de sesión en disco.
+🔹 Línea 58:    ⏸️ Pausa.
+🔹 Línea 61-63: 🖱️ Si hay periférico, llamar su método desconectar().
+🔹 Línea 65-74: 🔄 Proceso de cierre: liberar memoria, detener procesos.
+🔹 Línea 76-80: ✅ Mensaje final de apagado exitoso.
+
+🔹 Línea 83:    🔌 Método conectarPeriferico() - Asignar puntero a periférico.
+🔹 Línea 85:    📍 Asignar el puntero recibido al miembro periferico.
+🔹 Línea 86:    ✅ Mensaje de confirmación.
+
+🔹 Línea 89:    🔌 Método desconectarPeriferico() - Remover periférico.
+🔹 Línea 91-94: 🖱️ Si hay periférico, mostrar mensaje y establecer a nullptr.
+                ❌ NO se hace delete aquí para evitar double free.
+
+📁 ARCHIVO: Procesador.cpp
+-------------------------
+
+🔹 Línea 3:     🏭 Constructor - Inicializa velocidad y nucleos con parámetros.
+🔹 Línea 5:     ⚡ Método ejecutarInstruccion() - Simula ejecución de CPU.
+🔹 Línea 7-9:   📊 Mostrar mensajes descriptivos con estado del procesador.
+
+📁 ARCHIVO: MemoriaRAM.cpp
+-------------------------
+
+🔹 Línea 3:     🏭 Constructor - Inicializa capacidad con parámetro.
+🔹 Línea 5:     📖 Método leer() - Simula lectura de memoria.
+🔹 Línea 7-9:   📊 Mostrar mensajes y retornar string con datos simulados.
+🔹 Línea 12:    📝 Método escribir() - Simula escritura en memoria.
+🔹 Línea 14-17: 💾 Mostrar mensajes de escritura con datos proporcionados.
+
+📁 ARCHIVO: DiscoDuro.cpp
+------------------------
+
+🔹 Línea 3:     🏭 Constructor - Inicializa capacidad con parámetro.
+🔹 Línea 5:     📖 Método leerSector() - Simula lectura de disco.
+🔹 Línea 7-9:   📊 Mostrar mensajes y retornar string con datos simulados.
+🔹 Línea 12:    📝 Método escribirSector() - Simula escritura en disco.
+🔹 Línea 14-17: 💾 Mostrar mensajes de escritura con datos proporcionados.
+
+📁 ARCHIVO: Periferico.cpp
+-------------------------
+
+🔹 Línea 3:     🏭 Constructor - Inicializa marca con parámetro.
+🔹 Línea 5:     🔌 Método conectar() - Simula conexión de periférico.
+🔹 Línea 7-9:   📊 Mostrar mensajes de conexión con marca del dispositivo.
+🔹 Línea 12:    🔌 Método desconectar() - Simula desconexión.
+🔹 Línea 14-17: 📊 Mostrar mensajes de desconexión.
+🔹 Línea 20:    🏷️ Método getMarca() - Retorna la marca del periférico.
+
+🎓 CONCEPTOS CLAVE IMPLEMENTADOS:
+================================
+
+🏗️ COMPOSICIÓN: Computadora está compuesta de:
+                - 🚀 Procesador (obligatorio).
+                - 💾 MemoriaRAM (obligatorio).
+                - 💿 DiscoDuro (obligatorio).
+                🔒 Los componentes no existen sin la computadora.
+
+🔗 AGREGACIÓN:  Computadora puede tener Periferico (opcional).
+                - 🔌 Relación "tiene-un" mediante puntero.
+                - 🆓 El periférico puede existir independientemente.
+                - ❓ Se usa nullptr para indicar ausencia.
+
+🔒 ENCAPSULACIÓN: Todos los datos son privados.
+                 - 🔓 Solo métodos públicos son accesibles.
+                 - 🎯 Control total sobre el estado interno.
+
+💾 MANEJO DE MEMORIA: 
+- ➕ Main crea Periferico con new (heap).
+- ➖ Main libera con delete (evita memory leaks).
+- 🔄 Computadora solo maneja el puntero, no la memoria.
+
+🔄 FLUJO DEL PROGRAMA:
+1. 🏗️ Crear componentes → 2. 🔌 Conectar periférico → 3. 💡 Encender.
+4. ⚙️ Operar componentes → 5. 🔴 Apagar → 6. 🗑️ Liberar memoria.
+
+🎯 RESUMEN DE RELACIONES:
+========================
+Computadora 🏗️→ Procesador (Composición).
+Computadora 🏗️→ MemoriaRAM (Composición). 
+Computadora 🏗️→ DiscoDuro (Composición).
+Computadora 🔗→ Periferico (Agregación).
+
+✨ ¡PROGRAMA COMPLETADO EXITOSAMENTE! 🎉

@@ -1,0 +1,169 @@
+🖥️ EXPLICACIÓN DETALLADA LÍNEA POR LÍNEA - SIMULADOR DE COMPUTADORA
+====================================================================
+
+📁 ARCHIVOS DE CABECERA (.hpp)
+====================================================================
+
+📄 Computadora.hpp
+------------------
+Línea 1-2:  #ifndef COMPUTADORA_HPP / #define COMPUTADORA_HPP
+            → Protección contra inclusiones múltiples.
+
+Línea 4-6:  #include "Procesador.hpp" etc.
+            → Incluye las definiciones de los componentes.
+
+Línea 8-18: class Computadora { ... }
+            → Define la clase principal Computadora.
+            → private: Contiene los objetos componentes (composición).
+            → public: Constructor y métodos encender/apagar.
+
+📄 DiscoDuro.hpp, MemoriaRAM.hpp, Procesador.hpp
+-------------------------------------------------
+Línea 1-2:  Protección contra inclusiones múltiples.
+Línea 4:    #include <string> (solo donde se necesita).
+Línea 6-15: Definición de cada clase con:
+            → private: Atributos encapsulados.
+            → public: Constructor y métodos específicos.
+
+📁 ARCHIVOS DE IMPLEMENTACIÓN (.cpp)
+====================================================================
+
+📄 Main.cpp
+-----------
+Línea 1-3:  #include <iostream>, <windows.h>, "../include/Computadora.hpp"
+            → Incluye librerías estándar y nuestra clase Computadora.
+
+Línea 5:    using namespace std;
+            → Permite usar cout/cin sin std::
+
+Línea 7-9:  SetConsoleOutputCP(CP_UTF8); SetConsoleCP(CP_UTF8);
+            → Configura la consola para soportar emojis UTF-8.
+
+Línea 10-14: Mensajes de bienvenida y creación de componentes.
+
+Línea 17:   Computadora miPC(3.5f, 8, 16, 1000);
+            → Crea objeto Computadora con parámetros específicos.
+            → Se llama al constructor de Computadora.
+
+Línea 19-21: cout y cin.get() → Espera entrada del usuario.
+
+Línea 24:   miPC.encender(); → Ejecuta el método encender()
+
+Línea 26-28: Mensaje de funcionamiento y otra espera de usuario.
+
+Línea 31:   miPC.apagar(); → Ejecuta el método apagar()
+
+Línea 33-35: Mensaje de despedida y return 0
+
+📄 Computadora.cpp
+------------------
+Línea 5:    Computadora::Computadora(...) : procesador(...), memoria(...), disco(...) {}
+            → Constructor con lista de inicialización
+            → Inicializa los objetos miembro directamente.
+
+Línea 8-35: void Computadora::encender()
+            → Secuencia de encendido paso a paso:
+
+Línea 10-16: Mensajes iniciales de encendido con Sleep() para simular delays.
+
+Línea 19:   procesador.ejecutarInstruccion();
+            → Llama al método del componente Procesador.
+
+Línea 22:   memoria.escribir(1024, "Sistema Operativo Cargado");
+            → Llama al método escribir del componente MemoriaRAM.
+
+Línea 25:   std::string datosLeidos = memoria.leer(1024);
+            → Llama al método leer y almacena el resultado.
+
+Línea 29-30: disco.escribirSector() y disco.leerSector()
+            → Operaciones con el componente DiscoDuro.
+
+Línea 33-37: Mensajes finales de encendido exitoso.
+
+Línea 40-62: void Computadora::apagar()
+            → Secuencia inversa de apagado ordenado.
+
+📄 Procesador.cpp
+-----------------
+Línea 5:    Procesador::Procesador(float vel, int nuc) : velocidad(vel), nucleos(nuc) {}
+            → Constructor que inicializa atributos.
+
+Línea 7-11: void Procesador::ejecutarInstruccion()
+            → Muestra información del procesador y simula procesamiento.
+
+📄 MemoriaRAM.cpp
+-----------------
+Línea 5:    Constructor que inicializa capacidad.
+
+Línea 7-11: std::string MemoriaRAM::leer(int direccion)
+            → Simula lectura de memoria y retorna string.
+
+Línea 13-17: void MemoriaRAM::escribir(int direccion, const std::string& dato)
+            → Simula escritura en memoria.
+
+📄 DiscoDuro.cpp
+----------------
+Línea 5:    Constructor que inicializa capacidad.
+
+Línea 7-11: std::string DiscoDuro::leerSector(int sector)
+            → Simula lectura de disco y retorna string.
+
+Línea 13-17: void DiscoDuro::escribirSector(int sector, const std::string& dato)
+            → Simula escritura en disco.
+
+🔧 FLUJO DE EJECUCIÓN PRINCIPAL
+====================================================================
+
+1. 🏁 INICIO (main.cpp):
+   - Configura consola UTF-8.
+   - Muestra mensaje de bienvenida.
+   - Crea objeto Computadora → llama constructores en cadena.
+
+2. 🔄 CONSTRUCCIÓN:
+   - Computadora::Computadora() → Procesador::Procesador()
+   - Computadora::Computadora() → MemoriaRAM::MemoriaRAM()  
+   - Computadora::Computadora() → DiscoDuro::DiscoDuro()
+
+3. 🔌 ENCENDIDO (miPC.encender()):
+   - Mensajes de inicialización
+   - procesador.ejecutarInstruccion()
+   - memoria.escribir() → memoria.leer()
+   - disco.escribirSector() → disco.leerSector()
+   - Mensaje de sistema listo
+
+4. ⏸️  FUNCIONAMIENTO:
+   - Espera entrada usuario
+   - Computadora opera normalmente
+
+5. 🔌 APAGADO (miPC.apagar()):
+   - disco.escribirSector() (guardar datos)
+   - Mensajes de cierre ordenado
+   - Mensaje de apagado completo
+
+6. 🏁 FINAL:
+   - Mensaje de despedida
+   - Destrucción automática de objetos
+   - return 0
+
+🎯 PRINCIPIOS DE POO APLICADOS
+====================================================================
+
+• ENCAPSULACIÓN: Atributos privados, métodos públicos.
+• COMPOSICIÓN: Computadora "tiene-un" procesador, memoria, disco.
+• MODULARIDAD: Cada clase en archivos separados.
+• ABSTRACCIÓN: Interfaces simples para componentes complejos.
+• REUTILIZACIÓN: Clases independientes y reutilizables.
+• OCULTAMIENTO: Implementación interna protegida.
+
+⚡ CARACTERÍSTICAS TÉCNICAS
+====================================================================
+
+• 🕒 Timing: Sleep() para simular procesos reales.
+• 🎨 Interfaz: Emojis y formato visual atractivo.
+• 🔄 Flujo: Secuencia lógica encendido→uso→apagado.
+• 📊 Datos: Strings demostrativos del funcionamiento.
+• 🛡️ Seguridad: Protección contra inclusiones múltiples.
+• 🔧 Mantenibilidad: Código modular y fácil de extender.
+
+Este programa demuestra efectivamente los conceptos fundamentales de POO
+a través de una simulación realista y educativa de una computadora. 🎓
