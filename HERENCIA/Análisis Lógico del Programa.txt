@@ -1,0 +1,125 @@
+📋 ANÁLISIS LÓGICO LÍNEA POR LÍNEA - HERENCIA 🔍
+
+🎯 ARCHIVO MAIN.CPP - PUNTO DE INICIO
+======================================
+
+Línea 1-6:   📦 INCLUDES Y CONFIGURACIÓN
+#include <iostream>           → Habilita entrada/salida estándar
+#include <windows.h>          → Permite usar Sleep() para pausas
+#include "../include/Laptop.hpp" → Incluye definición de clase Laptop
+// ... otros includes        → Todas las clases necesarias
+
+Línea 8:     using namespace std; → Evita escribir std:: repetidamente
+
+Línea 10-14: 🎬 INICIALIZACIÓN DEL PROGRAMA
+int main() 
+{
+    SetConsoleOutputCP(CP_UTF8); → Configura consola para emojis UTF-8
+    SetConsoleCP(CP_UTF8);       → Configura entrada para caracteres especiales
+
+Línea 16-20: 🎪 PRESENTACIÓN INICIAL
+cout << "\n========================================";
+cout << "🖥️  DEMOSTRACIÓN HERENCIA Y POLIMORFISMO";
+// Muestra banner decorativo con emojis
+
+Línea 22-24: 🔧 CREACIÓN DE OBJETOS
+cout << "🔧 Creando diferentes tipos de computadoras...";
+Sleep(1000); → Pausa de 1 segundo para efecto visual
+
+Línea 27-28: 🏗️ INSTANCIACIÓN DE COMPUTADORAS
+Laptop laptop(2.8f, 4, 8, 512, 8, 15.6f);
+→ Constructor: velocidad, núcleos, RAM, disco, batería, pulgadas
+ComputadoraEscritorio escritorio(3.5f, 8, 16, 1000, "Grande");
+→ Constructor: velocidad, núcleos, RAM, disco, tamaño torre
+
+Línea 31-33: 🖱️ CREACIÓN DE PERIFÉRICOS
+Teclado teclado("Logitech", 105);    → marca, número de teclas
+Mouse mouse("Razer", 1600);          → marca, DPI
+Monitor monitor("Samsung", 27.0f, "2560x1440"); → marca, pulgadas, resolución
+
+Línea 37-39: 🎭 DEMOSTRACIÓN DE POLIMORFISMO
+cout << "🎯 DEMOSTRANDO POLIMORFISMO CON COMPUTADORAS:";
+
+Línea 42:    🔄 ARREGLO POLIMÓRFICO
+Computadora* computadoras[] = { &laptop, &escritorio };
+→ Crea arreglo de punteros a clase base que apuntan a objetos derivados
+
+Línea 44-52: 🔁 BUCLE POLIMÓRFICO
+for (int i = 0; i < 2; i++) {
+    computadoras[i]->conectarPeriferico(&teclado); → Conecta el mismo teclado
+    computadoras[i]->encender();      → Llama encender() de cada tipo
+    computadoras[i]->rendimiento();   → ⭐ LLAMADA POLIMÓRFICA ⭐
+    computadoras[i]->apagar();        → Llama apagar() de cada tipo
+}
+
+⭐ MOMENTO CLAVE - LÍNEA 48: POLIMORFISMO EN ACCIÓN ⭐
+computadoras[i]->rendimiento();
+→ Para i=0: Ejecuta Laptop::rendimiento() (calcula con batería y pantalla)
+→ Para i=1: Ejecuta ComputadoraEscritorio::rendimiento() (calcula con torre)
+→ ¡El compilador NO sabe en tiempo de compilación cuál se ejecutará!
+
+Línea 55-68: 🎯 FUNCIONALIDADES ESPECÍFICAS
+laptop.modoReposo();           → Solo Laptop tiene esta función
+escritorio.abrirTorre();       → Solo ComputadoraEscritorio tiene esta función
+escritorio.cerrarTorre();      → Funcionalidad exclusiva
+
+Línea 70-85: 🖱️ USO DE PERIFÉRICOS
+teclado.presionarTecla();      → Demuestra herencia de Periferico
+mouse.clicIzquierdo();         → Mouse hereda de Periferico
+mouse.clicDerecho();           → Tiene funciones específicas
+monitor.encender();            → Monitor hereda de Periferico
+monitor.ajustarBrillo();       → Función exclusiva de Monitor
+monitor.apagar();              → Todos los periféricos tienen conectar/desconectar
+
+Línea 87-99: 📊 RESUMEN Y CIERRE
+cout << "✅ DEMOSTRACIÓN COMPLETADA EXITOSAMENTE! 🌟";
+→ Muestra resumen de conceptos POO demostrados
+→ Explica herencia, polimorfismo, encapsulación, composición, agregación
+
+Línea 101:   return 0; → Programa finaliza exitosamente
+
+🔧 FUNCIONAMIENTO INTERNO DE LAS CLASES
+=======================================
+
+🏗️ CONSTRUCTORES EN CADENA:
+Laptop → llama → Computadora → llama → Procesador, MemoriaRAM, DiscoDuro
+
+🔄 FLUJO DE ENCENDIDO (Computadora::encender()):
+1. 🔌 Conectar energía
+2. ⚡ Verificar energía estable  
+3. 🔍 Inicializar componentes
+4. 🚀 Procesador ejecuta instrucción
+5. 💾 Memoria escribe y lee datos
+6. 💿 Disco escribe y lee sectores
+7. 🖱️ Conectar periféricos (si existen)
+8. ✅ Sistema listo
+
+🎯 POLIMORFISMO DETALLADO:
+• Computadora declara: virtual float rendimiento() = 0; (abstracto puro)
+• Laptop implementa: float rendimiento() override
+• ComputadoraEscritorio implementa: float rendimiento() override
+• Cuando se llama através de puntero a Computadora, se ejecuta la versión correcta
+
+🔒 ENCAPSULAMIENTO EN ACCIÓN:
+• Atributos privados: velocidad, nucleos, capacidad, marca, etc.
+• Solo accesibles mediante métodos públicos: getMarca(), ejecutarInstruccion()
+• ¡Protección de datos garantizada!
+
+🧩 RELACIONES ENTRE OBJETOS:
+
+COMPOSICIÓN (Fuerte):
+Computadora "tiene" Procesador, MemoriaRAM, DiscoDuro
+→ Si se destruye Computadora, se destruyen estos componentes
+
+AGREGACIÓN (Débil):  
+Computadora "usa" Periferico*
+→ Los periféricos pueden existir independientemente
+
+HERENCIA (Es-un):
+Laptop "es-una" Computadora
+Teclado "es-un" Periferico
+
+🎊 RESULTADO FINAL:
+El programa demuestra elegantemente cómo la POO permite modelar relaciones del mundo real, creando código organizado, reutilizable y fácil de mantener.
+
+¡Cada línea trabaja en armonía para mostrar la potencia de la Programación Orientada a Objetos! 🚀
