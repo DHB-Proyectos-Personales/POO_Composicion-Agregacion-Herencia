@@ -1,0 +1,113 @@
+🖥️ SIMULADOR DE COMPUTADORA - HERENCIA📖
+
+🌟 DESCRIPCIÓN DEL PROYECTO
+===========================
+Este programa demuestra los conceptos fundamentales de la Programación Orientada a Objetos (POO) en C++, simulando el funcionamiento de diferentes tipos de computadoras y sus componentes.
+
+🎯 CONCEPTOS PRINCIPALES DEMOSTRADOS
+====================================
+
+1. 🔗 HERENCIA
+   • Las clases Laptop y ComputadoraEscritorio HEREDAN de Computadora.
+   • Teclado, Mouse y Monitor HEREDAN de Periferico.
+   • "Es-un" relación: Una Laptop ES-UNA Computadora.
+
+2. 🎭 POLIMORFISMO
+   • El método rendimiento() se comporta diferente en cada tipo de computadora.
+   • Podemos tratar diferentes objetos de manera uniforme.
+   • ¡El programa elige automáticamente la versión correcta!
+
+3. 🔒 ENCAPSULAMIENTO
+   • Los datos internos están protegidos (private).
+   • Solo se puede acceder mediante métodos públicos.
+   • ¡Información oculta = código más seguro!.
+
+4. 🧩 COMPOSICIÓN vs AGREGACIÓN
+   • COMPOSICIÓN: Computadora está COMPUESTA de Procesador, Memoria, Disco
+     (si se destruye la computadora, se destruyen estos componentes).
+   • AGREGACIÓN: Computadora TIENE Periféricos.
+     (los periféricos pueden existir independientemente).
+
+🏗️ ESTRUCTURA DEL PROGRAMA
+==========================
+
+📁 CARPETAS PRINCIPALES:
+├── 📂 bin/          → Archivo ejecutable Computadora.exe
+├── 📂 include/      → Archivos de cabecera (.hpp)
+├── 📂 src/          → Archivos de implementación (.cpp)
+└── 📄 Léeme.txt     → Este archivo
+
+🔧 CLASES PRINCIPALES:
+=====================
+
+🖥️ COMPUTADORA (Clase Base Abstracta)
+   ├── 💻 LAPTOP (Herencia).
+   └── 🏢 COMPUTADORAESCRITORIO (Herencia).
+
+🖱️ PERIFERICO (Clase Base)
+   ├── ⌨️ TECLADO (Herencia).
+   ├── 🖱️ MOUSE (Herencia).
+   └── 🖥️ MONITOR (Herencia).
+
+🔌 COMPONENTES (Composición):
+   • ⚡ PROCESADOR.
+   • 💾 MEMORIA RAM.
+   • 💿 DISCO DURO.
+
+🚀 CÓMO EJECUTAR EL PROGRAMA
+============================
+
+1. 📦 Compilar el proyecto:
+   g++ -o bin/Computadora.exe src/*.cpp -I include
+
+2. 🎮 Ejecutar:
+   bin/Computadora.exe
+
+3. 👀 Observar la demostración automática que muestra:
+   • Encendido de computadoras.
+   • Cálculo de rendimiento (polimorfismo).
+   • Funcionalidades específicas de cada tipo.
+   • Uso de periféricos.
+
+🎭 QUÉ VERÁS EN EJECUCIÓN
+=========================
+
+🔹 Se crearán 2 tipos de computadoras:
+   • 💻 Laptop con batería y pantalla específica.
+   • 🏢 Computadora de escritorio con torre grande.
+
+🔹 Se conectarán periféricos:
+   • ⌨️ Teclado Logitech.
+   • 🖱️ Mouse Razer.
+   • 🖥️ Monitor Samsung.
+
+🔹 El programa demostrará:
+   • ✅ Encendido y apagado de sistemas.
+   • 📊 Cálculo de rendimiento diferente para cada tipo.
+   • 🔧 Funciones específicas (modo reposo, abrir torre).
+   • 🖱️ Uso de todos los periféricos.
+
+🎓 APRENDIZAJES CLAVE
+=====================
+
+• 🔄 REUTILIZACIÓN: Usamos código existente mediante herencia.
+• 🎯 FLEXIBILIDAD: Podemos agregar nuevos tipos fácilmente.
+• 🛡️ SEGURIDAD: Datos protegidos contra acceso incorrecto.
+• 📐 ORGANIZACIÓN: Código bien estructurado y mantenible.
+
+💡 EJEMPLO DE POLIMORFISMO:
+===========================
+
+Computadora* equipos[] = { &laptop, &escritorio };
+for(auto equipo : equipos) {
+    equipo->rendimiento(); // ¡Cada uno hace lo correcto!
+}
+
+¡La laptop calcula su rendimiento basado en batería y pantalla!
+¡La computadora de escritorio usa el tamaño de torre!
+
+🌟 CONCLUSIÓN
+=============
+Este proyecto muestra cómo la POO nos ayuda a modelar el mundo real de manera organizada, haciendo nuestro código más comprensible, mantenible y extensible.
+
+¡Disfruta explorando el código! 🎉
